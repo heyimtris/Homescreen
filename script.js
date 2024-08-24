@@ -20,7 +20,7 @@ updateTime();
 async function getWeatherData(city, state) {
     const apiKey = 'f23916bdb841106e411b024086a5b4d5';
 
-    const cityData = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=1&appid=${apiKey}`);
+    const cityData = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},${state}&limit=1&appid=${apiKey}`);
     const cityLocation = await cityData.json();
     if (!cityLocation[0]) {
         console.error('City not found!');
