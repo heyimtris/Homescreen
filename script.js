@@ -119,7 +119,8 @@ searchInput.addEventListener('input', () => {
                 'X-Requested-With': 'realreallidnewofoiwfhoiw'
             }
         }).then(response => {
-                if (response.text().includes('too many requests')) {
+            const responsetext = response.text()
+                if (responsetext.includes('too many requests')) {
                     const autocompleteList = document.querySelector('.autocomplete');
                     
                     
