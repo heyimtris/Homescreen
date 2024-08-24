@@ -119,10 +119,7 @@ searchInput.addEventListener('input', () => {
                 'X-Requested-With': 'realreallidnewofoiwfhoiw'
             }
         }).then(response => {
-            try {
-            return response.json()
-            } catch(error) {
-                  if (error.includes('too many requests')) {
+                if (response.text().includes('too many requests')) {
                     const autocompleteList = document.querySelector('.autocomplete');
                     
                     
@@ -130,8 +127,8 @@ searchInput.addEventListener('input', () => {
                     return [ 'Too many requests. Please try again later.'];
 
                 }
-            }
-        }).then(data => {
+            return response.json()
+            }).then(data => {
             console.log(data);
             const suggestions = data[1];
             const autocompleteList = document.querySelector('.autocomplete');
